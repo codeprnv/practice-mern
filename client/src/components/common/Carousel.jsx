@@ -55,7 +55,7 @@ const Carousel = ({ data, loading, error, className = "" }) => {
         ) : (
           <>
             <img
-              src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/w780${data.backdrop_path}`}
               alt={data.title || data.name}
               className="h-full w-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
               loading="lazy"

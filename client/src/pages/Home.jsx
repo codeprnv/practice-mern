@@ -1,35 +1,44 @@
-import Header from "../components/Header/Header";
-import HeroSection from "../components/Hero/HeroSection";
-import CategorySections from "../components/common/CategorySections";
-import { sections } from "../utils/Data/sections";
+import { Suspense, lazy } from 'react';
+import Header from '../components/Header/Header';
+import HeroSection from '../components/Hero/HeroSection';
+import SkeletonLoader from '../components/common/SkeletonLoader';
+import { sections } from '../utils/Data/sections';
+
+const CategorySections = lazy(
+   () => import('../components/common/CategorySections')
+);
 
 const Home = () => {
-  return (
-    <div className="relative flex min-h-screen w-full min-w-[320px] flex-col overflow-x-hidden bg-black/90">
-      {/* black gradient overlay */}
-      <div className="pointer-events-none absolute inset-0 top-0 left-0 z-10 h-full w-[60vw] bg-gradient-to-r from-black/30 to-transparent transition-colors duration-200 ease-in md:w-[70vw]" />
+   return (
+      <div className='relative flex min-h-screen w-full min-w-[320px] flex-col overflow-x-hidden bg-black/90'>
+         {/* black gradient overlay */}
+         <div className='pointer-events-none absolute inset-0 left-0 top-0 z-10 h-full w-[60vw] bg-gradient-to-r from-black/30 to-transparent transition-colors duration-200 ease-in md:w-[70vw]' />
 
-      <Header />
-      <HeroSection />
+         <Header />
+         <HeroSection />
 
-      {/* "Now Playing" only for mobile */}
-      <div className="relative -top-6 w-full lg:hidden">
-        <CategorySections
-          title="Now Playing"
-          queryKey="nowPlaying"
-          queryFn="fetchNowPlaying"
-        />
+         {/* "Now Playing" only for mobile */}
+         <div className='relative -top-6 w-full lg:hidden'>
+            <Suspense fallback={<SkeletonLoader className='h-full w-full' />}>
+               <CategorySections
+                  title='Now Playing'
+                  queryKey='nowPlaying'
+                  queryFn='fetchNowPlaying'
+               />
+            </Suspense>
+         </div>
+         {sections?.map((section, index) => (
+            <Suspense fallback={<SkeletonLoader className='h-full w-full' />}>
+               <CategorySections
+                  key={index}
+                  title={section.title}
+                  queryKey={section.queryKey}
+                  queryFn={section.queryFn}
+               />
+            </Suspense>
+         ))}
       </div>
-      {sections?.map((section, index) => (
-        <CategorySections
-          key={index}
-          title={section.title}
-          queryKey={section.queryKey}
-          queryFn={section.queryFn}
-        />
-      ))}
-    </div>
-  );
+   );
 };
 
 export default Home;

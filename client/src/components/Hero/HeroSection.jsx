@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { fetchNowPlaying } from '../../utils/Data/helper';
-import TrendingCarousel from '../Trending/TrendingCarousel';
-import Carousel from '../common/Carousel';
+const TrendingCarousel = lazy(() => import('../Trending/TrendingCarousel'));
+const Carousel = lazy(() => import('../common/Carousel'));
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from 'framer-motion';
 import SkeletonLoader from '../common/SkeletonLoader';
@@ -27,7 +27,9 @@ const HeroSection = () => {
          {/* Desktop Grid: Trending + Now Playing */}
          <div className='hidden lg:grid lg:grid-cols-[70%_30%] lg:gap-5'>
             <div>
-               <TrendingCarousel />
+               <Suspense fallback={<SkeletonLoader className='h-full w-full' />}>
+                  <TrendingCarousel />
+               </Suspense>
             </div>
             <div className='flex flex-col gap-3 px-2'>
                <header
@@ -85,7 +87,9 @@ const HeroSection = () => {
 
          {/* Mobile View: Only Trending */}
          <div className='-top-19 relative !h-[430px] w-full lg:hidden'>
-            <TrendingCarousel />
+            <Suspense fallback={<SkeletonLoader className='h-full w-full' />}>
+               <TrendingCarousel />
+            </Suspense>
          </div>
       </div>
    );
