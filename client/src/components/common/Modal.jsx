@@ -88,9 +88,7 @@ export default function Modal({ open, handler, position, data }) {
                 </div>
               </div>
             </DialogHeader>
-            <DialogBody>
-              {data?.overview}
-            </DialogBody>
+            <DialogBody>{data?.overview}</DialogBody>
             <DialogFooter>
               <Button
                 onClick={handler}

@@ -1,12 +1,12 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import { MdArrowForwardIos } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { fetchNowPlaying } from "../../utils/Data/helper";
 import TrendingCarousel from "../Trending/TrendingCarousel";
 import Carousel from "../common/Carousel";
-import { fetchNowPlaying } from "../../utils/Data/helper";
-import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
-import { MdArrowForwardIos } from "react-icons/md";
 // eslint-disable-next-line no-unused-vars
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const HeroSection = () => {
   const [hovered, setHovered] = React.useState(false);

@@ -10,7 +10,6 @@ const App = () => {
     <SnackbarProvider maxSnack={3} autoHideDuration={3000}>
       <Router>
         <div className="flex min-h-screen max-w-screen flex-col items-center justify-center overflow-hidden">
-          
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/login" element={<Login />}></Route>

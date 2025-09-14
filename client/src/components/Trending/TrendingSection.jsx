@@ -9,7 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "framer-motion";
 
 const TrendingSection = () => {
-    const [hovered, setHovered] = React.useState(false);
+  const [hovered, setHovered] = React.useState(false);
   const { data, isLoading, error } = useQuery({
     queryKey: ["nowPlaying"],
     queryFn: fetchNowPlaying,

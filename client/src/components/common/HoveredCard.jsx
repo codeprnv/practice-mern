@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 
 const HoveredCard = ({ data, position, onClose }) => {
-    // console.log("Position:", position);
+  // console.log("Position:", position);
 
   return (
     <motion.div

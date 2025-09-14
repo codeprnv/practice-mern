@@ -20,7 +20,7 @@ const Menu = () => {
       </nav>
 
       {/* Mobile Menu */}
-      <nav className="w-full items-center justify-start px-1 py-2 md:hidden ">
+      <nav className="w-full items-center justify-start px-1 py-2 md:hidden">
         <NavigationMenu />
       </nav>
     </>

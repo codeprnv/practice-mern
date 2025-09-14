@@ -13,7 +13,7 @@ const action = (snackbarId) => (
   </div>
 );
 
-export const Notify = (message, variant="success") => {
+export const Notify = (message, variant = "success") => {
   enqueueSnackbar(message, {
     variant: variant,
     anchorOrigin: {

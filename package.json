@@ -1,0 +1,31 @@
+{
+   "name": "practice-mern",
+   "version": "1.0.0",
+   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+   "type": "module",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "client": "npm --prefix client run dev",
+      "server": "npm --prefix server run dev",
+      "dev": "concurrently \"npm:client\" \"npm:server\"",
+      "format:check": "npx prettier -c .",
+      "format": "npx prettier -w ."
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/codeprnv/practice-mern.git"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/codeprnv/practice-mern/issues"
+   },
+   "homepage": "https://github.com/codeprnv/practice-mern#readme",
+   "devDependencies": {
+      "concurrently": "^9.2.1",
+      "prettier": "^3.6.2",
+      "prettier-plugin-tailwindcss": "^0.6.14"
+   }
+}

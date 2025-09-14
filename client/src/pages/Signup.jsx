@@ -19,7 +19,7 @@ const Signup = () => {
     e.preventDefault();
     if (password !== confirmPassword) {
       clearForm();
-      Notify("Passwords do not match","error");
+      Notify("Passwords do not match", "error");
       setTimeout(() => {
         setError(false);
       }, 2000);
@@ -45,7 +45,7 @@ const Signup = () => {
     } catch (error) {
       clearForm();
       console.error("Error during signup:", error);
-      Notify(`${error.response.data.message}`,"error");
+      Notify(`${error.response.data.message}`, "error");
     }
   };
 

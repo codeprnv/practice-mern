@@ -1,9 +1,9 @@
-import React from "react";
-import SkeletonLoader from "../common/SkeletonLoader";
-import { MdOutlineArrowDropDownCircle } from "react-icons/md";
-import Modal from "./Modal";
-import HoveredCard from "./HoveredCard"; // ⬅️ import this
 import { AnimatePresence } from "framer-motion";
+import React from "react";
+import { MdOutlineArrowDropDownCircle } from "react-icons/md";
+import SkeletonLoader from "../common/SkeletonLoader";
+import HoveredCard from "./HoveredCard"; // ⬅️ import this
+import Modal from "./Modal";
 
 const Carousel = ({ data, loading, error, className = "" }) => {
   const [open, setOpen] = React.useState(false);

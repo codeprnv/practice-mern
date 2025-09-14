@@ -1,14 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { MdArrowForwardIos } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
-import Carousel from "./Carousel";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useRef } from "react";
+import { MdArrowForwardIos } from "react-icons/md";
+import { Link } from "react-router-dom";
 import "swiper/css/bundle";
 import { Navigation } from "swiper/modules";
-import { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Carousel from "./Carousel";
 // eslint-disable-next-line no-unused-vars
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const CategorySections = ({ title = "", queryKey = "", queryFn }) => {
   const { data, isLoading, error } = useQuery({
@@ -58,7 +57,7 @@ const CategorySections = ({ title = "", queryKey = "", queryFn }) => {
           <AnimatePresence>
             {(headerHovered || h1Hovered) && (
               <motion.div
-                className="-top-2 relative"
+                className="relative -top-2"
                 key="hover-content"
                 initial={{ opacity: 0, x: 0 }}
                 animate={{ opacity: 1, x: 10 }}

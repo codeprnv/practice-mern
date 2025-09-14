@@ -5,7 +5,7 @@ import { sections } from "../utils/Data/sections";
 
 const Home = () => {
   return (
-    <div className="flex relative min-h-screen w-full min-w-[320px] flex-col overflow-x-hidden bg-black/90">
+    <div className="relative flex min-h-screen w-full min-w-[320px] flex-col overflow-x-hidden bg-black/90">
       {/* black gradient overlay */}
       <div className="pointer-events-none absolute inset-0 top-0 left-0 z-10 h-full w-[60vw] bg-gradient-to-r from-black/30 to-transparent transition-colors duration-200 ease-in md:w-[70vw]" />
 
