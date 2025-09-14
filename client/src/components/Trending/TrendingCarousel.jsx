@@ -1,3 +1,4 @@
+import imdb_logo from '@assets/imdb_logo.png';
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect } from 'react';
 import { FaPlay } from 'react-icons/fa';
@@ -6,11 +7,10 @@ import 'swiper/css/bundle';
 import 'swiper/modules';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import imdb_logo from '../../assets/imdb_logo.png';
 import {
-  extractYear,
-  fetchTrending,
-  truncateText,
+   extractYear,
+   fetchTrending,
+   truncateText,
 } from '../../utils/Data/helper.js';
 import SkeletonLoader from '../common/SkeletonLoader.jsx';
 
@@ -29,9 +29,9 @@ const TrendingCarousel = () => {
    }, [data]);
 
    return (
-      <div className='flex h-[45dvh] w-full overflow-hidden rounded-lg shadow-xl shadow-[#E6020C] sm:h-full lg:ml-2 lg:w-[98%] lg:border lg:shadow-2xl'>
+      <div className='flex h-full w-full overflow-hidden rounded-lg shadow-xl shadow-[#E6020C] lg:ml-2 lg:w-[98%] lg:border lg:shadow-2xl'>
          {isLoading || error ? (
-            <SkeletonLoader />
+            <SkeletonLoader height={80} width={100} />
          ) : (
             <div className='h-full w-full select-none overflow-hidden'>
                <Swiper
@@ -98,17 +98,15 @@ const TrendingCarousel = () => {
                                  .
                               </span>
                               {item?.omdb?.Genre ? (
-                                 item.omdb.Genre.split(', ').map(
-                                    (genre) => (
-                                       <Link
-                                          key={genre}
-                                          className='hidden text-sm font-medium text-white hover:text-blue-400 hover:underline md:block md:text-base'
-                                          reloadDocument
-                                       >
-                                          {genre}
-                                       </Link>
-                                    )
-                                 )
+                                 item.omdb.Genre.split(', ').map((genre) => (
+                                    <Link
+                                       key={genre}
+                                       className='hidden text-sm font-medium text-white hover:text-blue-400 hover:underline md:block md:text-base'
+                                       reloadDocument
+                                    >
+                                       {genre}
+                                    </Link>
+                                 ))
                               ) : (
                                  <div></div>
                               )}

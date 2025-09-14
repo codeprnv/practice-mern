@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Carousel from "./Carousel";
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
+import SkeletonLoader from "./SkeletonLoader";
 
 const CategorySections = ({ title = "", queryKey = "", queryFn }) => {
   const { data, isLoading, error } = useQuery({
@@ -32,6 +33,25 @@ const CategorySections = ({ title = "", queryKey = "", queryFn }) => {
       }
     }, 7000);
   };
+
+  if (isLoading || error) {
+     return (
+        <div className='flex h-full w-full select-none flex-col justify-center gap-2 p-2 lg:mx-2 lg:mt-8'>
+           <h1 className='mb-4 cursor-pointer px-2 text-xl font-semibold text-white md:text-xl lg:text-2xl'>
+              {title}
+           </h1>
+           <div className='flex space-x-4 overflow-hidden px-2'>
+              {/* Render 6 skeleton cards to mimic the carousel */}
+              {[...Array(6)].map((_, i) => (
+                 <SkeletonLoader
+                    key={i}
+                    className='!h-[130px] !w-[220px] flex-shrink-0 md:!h-[160px] md:!w-[270px]'
+                 />
+              ))}
+           </div>
+        </div>
+     );
+  }
 
   return (
     <div className="flex h-full w-full flex-col justify-center gap-2 p-2 select-none lg:mx-2 lg:mt-8">

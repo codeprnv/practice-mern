@@ -51,7 +51,7 @@ const Carousel = ({ data, loading, error, className = "" }) => {
         <div className="pointer-events-none absolute top-0 left-0 z-0 h-full w-full bg-gradient-to-r from-black/20 to-transparent" />
 
         {loading || error ? (
-          <SkeletonLoader />
+          <SkeletonLoader height={100} width={100}/>
         ) : (
           <>
             <img
